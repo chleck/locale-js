@@ -304,7 +304,7 @@ See also: Creating i18n object.
 
 // Create i18n object for the remote mode
 var i18n = new locale.i18n(null);
-var __ = i18n.__();
+var __ = i18n.__;
 submit({
   id: 832367,
   errno: 404,
