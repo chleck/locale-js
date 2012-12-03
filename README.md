@@ -34,9 +34,6 @@ or download minified library [i18n.min.js](https://raw.github.com/chleck/locale-
 
 # API
 ---
-
-## Index
----
 - [Library import](#library-import)
 - [Configuration](#configuration)
 - [Creating i18n object](#creating-i18n-object)
