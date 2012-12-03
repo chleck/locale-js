@@ -1,0 +1,88 @@
+@ [1] remote.js (23:15)
+@ [2] remote.js (25:17)
+@ [3] translate.js (36:6)
+@ [4] translate.js (38:6)
+S Hello!
+# [4] This is comment.
+? Hello!
+! Привет!
+
+@ [1] remote.js (24:13)
+P The following error occurred during processing:
+? The following error occurred during processing:
+? The following errors occurred during processing:
+! Во время обработки возникла следующая ошибка:
+! Во время обработки возникли следующие ошибки:
+! Во время обработки возникли следующие ошибки:
+
+@ [1] remote.js (25:31)
+S Email %s is invalid. Please enter valid email.
+? Email %s is invalid. Please enter valid email.
+! Недопустимый email %s. Пожалуйста, введите правильный email.
+
+@ [1] translate.js (40:6)
+S Hello!#another_hello
+? Hello!
+! Здаров!
+
+@ [1] translate.js (42:6)
+S Hello!#another_hello2
+# Please translate this another way.
+? Hello!
+! Алло!
+
+@ [1] translate.js (44:6)
+S There is ## in this phrase but it is not comment.
+? There is ## in this phrase but it is not comment.
+! В этой строке есть #, но это не комментарий.
+
+@ [1] translate.js (46:6)
+S Hello?
+? Hello?
+! 
+
+@ [1] translate.js (48:6)
+S This is %% percent symbol. This is placeholder with %s((name).
+? This is %% percent symbol. This is placeholder with %s((name).
+! Это %% знак процента. Это плейсхолдер с %s((name).
+
+@ [1] translate.js (50:6)
+@ [2] translate.js (52:6)
+@ [3] translate.js (54:6)
+S My %s(1) is faster then your %s(2)!
+? My %s(1) is faster then your %s(2)!
+! Мой %s(1) быстрее, чем твой %s(2)!
+
+@ [1] translate.js (56:6)
+S Let's count in English: %s, %s, %s(4) and %s.
+? Let's count in English: %s, %s, %s(4) and %s.
+! Давайте считать по-английски: %s, %s, %s(4) и %s.
+
+@ [1] translate.js (58:6)
+@ [2] translate.js (59:6)
+@ [3] translate.js (60:6)
+P Inbox: %n unreaded message.
+? Inbox: %n unreaded message.
+? Inbox: %n unreaded messages.
+! Входящие: %n непрочитанное сообщение.
+! Входящие: %n непрочитанных сообщения.
+! Входящие: %n непрочитанных сообщений.
+
+@ [1] translate.js (62:6)
+@ [2] translate.js (67:6)
+@ [3] translate.js (72:6)
+P %n developer from our team uses %s(1) with %s(2).
+# Comment 1
+# [2] Comment 3
+# [3] Multiline
+# comment
+? %n developer from our team uses %s(1) with %s(2).
+# Comment 2
+# [2] Comment 4
+# [3] Another
+# multiline
+# comment
+? %n developers from our team uses %s(1) with %s(2).
+! %n разработчик из нашей команды использует %s(1) с %s(2).
+! %n разработчика из нашей команды используют %s(1) с %s(2).
+! %n разработчиков из нашей команды используют %s(1) с %s(2).

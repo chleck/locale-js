@@ -1,0 +1,29 @@
+{
+  "author": "Dmitry Chleck <dmitrychleck@gmail.com>",
+  "license": "MIT",
+  "name": "locale-js",
+  "version": "1.0.0",
+  "description": "i18n for Node.js and browser",
+  "keywords": "locale i18n translate gettext",
+  "main": "index.js",
+  "homepage": "https://bitbucket.org/chleck/locale-js/overview",
+  "repository": {
+    "type": "https",
+    "url": "https://bitbucket.org/chleck/locale-js.git"
+  },
+  "directories": {
+    "lib": "lib",
+    "example": "example",
+    "test": "test"
+  },
+  "dependencies": {
+  },
+  "devDependencies": { "should": "*" },
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "mocha",
+    "make": "uglifyjs -o i18n.min.js lib/i18n.js"
+  }
+}

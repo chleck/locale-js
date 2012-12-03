@@ -1,0 +1,4 @@
+.git*
+*.sublime*
+i18n.min.js
+TODO.md
