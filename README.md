@@ -37,9 +37,15 @@ or download minified library [i18n.min.js](https://raw.github.com/chleck/locale-
 
 ## Index
 ---
-- [Library import](#import)
+- [Library import](#library-import)
+- [Configuration](#configuration)
+- [Creating i18n object](#creating-i18n-object)
+- [Translation target](#translation-target)
+- [Translation](#translation)
+- [Strings format](#strings-format)
+- [Remote translation](#remote-translation)
 
-## <a name="import">Library import</a>
+## Library import
 ---
 
 ### For node.js:
