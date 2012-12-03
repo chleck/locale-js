@@ -5,6 +5,7 @@
  * 
  * @author Dmitry A. Chleck <dmitrychleck@gmail.com>
  * @version 1.0.0
+ * @url https://github.com/chleck/locale-js
  */
 
 var locale  = require('..');
