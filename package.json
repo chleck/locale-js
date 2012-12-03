@@ -6,10 +6,10 @@
   "description": "i18n for Node.js and browser",
   "keywords": "locale i18n translate gettext",
   "main": "index.js",
-  "homepage": "https://bitbucket.org/chleck/locale-js/overview",
+  "homepage": "https://github.com/chleck/locale-js",
   "repository": {
     "type": "https",
-    "url": "https://bitbucket.org/chleck/locale-js.git"
+    "url": "https://github.com/chleck/locale-js.git"
   },
   "directories": {
     "lib": "lib",

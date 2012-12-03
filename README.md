@@ -29,7 +29,7 @@ Install node.js library:
 
     npm install locale-js
 
-or download minified library [i18n.min.js](https://bitbucket.org/chleck/locale-js/raw/stable/i18n.min.js "Minified i18n.js") (for browser apps).
+or download minified library [i18n.min.js](https://raw.github.com/chleck/locale-js/master/i18n.min.js "Minified i18n.js") (for browser apps).
 
 # API
 ---
