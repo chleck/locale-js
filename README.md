@@ -11,17 +11,18 @@
 
 ## It's simple
 ---
-    // Translate
-    var who = 'world';
-    __('Hello, %s!', who);
+```javascript
+// Translate
+var who = 'world';
+__('Hello, %s!', who);
 
-    // Translate plural
-    __([
-      'There is %n item in your cart (total $%s).',
-      'There are %n items in your cart (total $%s).'
-      ], cart.items.length, cart.total
-    );
-
+// Translate plural
+__([
+  'There is %n item in your cart (total $%s).',
+  'There are %n items in your cart (total $%s).'
+  ], cart.items.length, cart.total
+);
+```
 # Installation
 ---
 
