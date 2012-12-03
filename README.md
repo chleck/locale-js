@@ -32,6 +32,10 @@ npm install locale-js
 ```
 or download minified library [i18n.min.js](https://raw.github.com/chleck/locale-js/master/i18n.min.js "Minified i18n.js") (for browser apps).
 
+# Tools
+---
+See [locale-tools project](https://github.com/chleck/locale-tools "Tools for locale-js").
+
 # API
 ---
 - [Library import](#library-import)
