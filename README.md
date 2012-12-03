@@ -27,15 +27,19 @@ __([
 ---
 
 Install node.js library:
-
-    npm install locale-js
-
+```
+npm install locale-js
+```
 or download minified library [i18n.min.js](https://raw.github.com/chleck/locale-js/master/i18n.min.js "Minified i18n.js") (for browser apps).
 
 # API
 ---
 
-## Library import
+## Index
+---
+- [Library import](#import)
+
+## <a name="import">Library import</a>
 ---
 
 ### For node.js:
