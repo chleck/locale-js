@@ -221,7 +221,7 @@ See also: Remote translation.
 
 Each string consists of *phrase*, *id* and *comment*.
 Both *id* and *comment* are optional, *id* separates from *phrase* by '#' sign, *comment* separates from *id* by space.
-```javascript
+```
 <phrase>[#<id>[ <comment>]]
 ```
 *phrase* + *id* is unique key for translation dictionary. You can create several variants of translation of the same *phrase* using different *id*s.
@@ -277,7 +277,7 @@ i18n.tr(obj)
 , where *obj* (object) - object for translation.
 
 ### Remote translation data structure:
-```javascript
+```
 {
   __i18n: true,
   phrase: <phrase>,
