@@ -46,34 +46,34 @@ function demo() {
   // This phrase will not be translated - missing in translation.
   w(__('Hello?'));
   // Escapes for placeholders
-  w(__('This is %% percent symbol. This is placeholder with %s((name).', 'ignored '));
+  w(__('This is %% percent symbol.'));
   // Placeholders with additional arguments
-  w(__('My %s(1) is faster then your %s(2)!', 'SSD', 'HDD'));
+  w(__('My %(0)s is faster then your %(1)s!', 'SSD', 'HDD'));
   // Placeholders with array
-  w(__('My %s(1) is faster then your %s(2)!', [ 'Kawasaki', 'Segway' ]));
+  w(__('My %(0)s is faster then your %(1)s!', [ 'Kawasaki', 'Segway' ]));
   // Placeholders with object
-  w(__('My %s(1) is faster then your %s(2)!', { 1: 'Core i7', 2: '486DX' }));
+  w(__('My %(0)s is faster then your %(1)s!', { 0: 'Core i7', 1: '486DX' }));
   // Both names and order
-  w(__('Let\'s count in English: %s, %s, %s(4) and %s.', 'one', 'two', 'four', 'three'));
+  w(__('Let\'s count in English: %s, %s, %(3)s and %s.', 'one', 'two', 'four', 'three'));
   // Plural forms
   w(__(['Inbox: %n unreaded message.', 'Inbox: %n unreaded messages.'], 1));
   w(__(['Inbox: %n unreaded message.', 'Inbox: %n unreaded messages.'], 12));
   w(__(['Inbox: %n unreaded message.', 'Inbox: %n unreaded messages.'], 22));
   // All-in-one
   w(__([
-    '%n developer from our team uses %s(1) with %s(2).# Comment 1',
-    '%n developers from our team uses %s(1) with %s(2).# Comment 2'
+    '%n developer from our team uses %(0)s with %(1)s.# Comment 1',
+    '%n developers from our team uses %(0)s with %(1)s.# Comment 2'
     ], 1, 'C', 'vim'
   ));
   w(__([
-    '%n developer from our team uses %s(1) with %s(2).# Comment 3',
-    '%n developers from our team uses %s(1) with %s(2).# Comment 4'
+    '%n developer from our team uses %(0)s with %(1)s.# Comment 3',
+    '%n developers from our team uses %(0)s with %(1)s.# Comment 4'
     ], 3, [ 'Python', 'PyCharm' ]
   ));
   w(__([
-    '%n developer from our team uses %s(1) with %s(2).# Multiline\ncomment',
-    '%n developers from our team uses %s(1) with %s(2).# Another\nmultiline\ncomment'
-    ], 7, { '1': 'Node.js', '2': 'Sublime Text 2' }
+    '%n developer from our team uses %(0)s with %(1)s.# Multiline\ncomment',
+    '%n developers from our team uses %(0)s with %(1)s.# Another\nmultiline\ncomment'
+    ], 7, { 0: 'Node.js', 1: 'Sublime Text 2' }
   ));
   // No args - empty string
   w(__());
