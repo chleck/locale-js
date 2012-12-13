@@ -197,25 +197,25 @@ __('Hello!');
 // Hello, anonymous!
 __('Hello, %s!', 'anonymous');
 // Hello, John Smith!
-__('Hello, %s(2) %s(1)!', [ 'Smith', 'John' ]);
+__('Hello, %(1)s %(0)s!', [ 'Smith', 'John' ]);
 // Hello, Foo (bar)!
-__('Hello, %s(name) (%s(login))!', { name: 'Foo', login: 'bar' });
+__('Hello, %(name)s (%(login)s)!', { name: 'Foo', login: 'bar' });
 
 // Plural:
 
 // Inbox: 1 unreaded message.
 __([ 'Inbox: %n unreaded message.', 'Inbox: %n unreaded messages.' ], 1);
 // Inbox: 7 unreaded messages.
-__([ '%s(1): %n unreaded message.', '%s(1): %n unreaded messages.' ], 7, 'Inbox');
+__([ '%(0)s: %n unreaded message.', '%(0)s: %n unreaded messages.' ], 7, 'Inbox');
 // Anonymous, you have 365 unreaded messages in the "Spam" folder.
 __([
-    '%s(1), you have %n unreaded message in the "%s(2)" folder.',
-    '%s(1), you have %n unreaded messages in the "%s(2)" folder.'
+    '%(0)s, you have %n unreaded message in the "%(1)s" folder.',
+    '%(0)s, you have %n unreaded messages in the "%(1)s" folder.'
    ], 365, [ 'Anonymous', 'Spam' ]);
 // The second way
 __([
-    '%s(login), you have %n unreaded message in the "%s(folder)" folder.',
-    '%s(login), you have %n unreaded messages in the "%s(folder)" folder.'
+    '%(login)s, you have %n unreaded message in the "%(folder)s" folder.',
+    '%(login)s, you have %n unreaded messages in the "%(folder)s" folder.'
    ], 365, { login: 'Anonymous', folder: 'Spam' });
 
 // Remote:
@@ -223,7 +223,7 @@ __([
 // { __i18n: true, phrase: 'Hello!', n: undefined, args: {} }
 __('Hello!');
 ```
-See also: Remote translation.
+See also: [Remote translation](#remote-translation).
 
 ## Strings format
 ---
@@ -233,7 +233,7 @@ See also: Remote translation.
 Each string consists of *phrase*, *id* and *comment*.
 Both *id* and *comment* are optional, *id* separates from *phrase* by '#' sign, *comment* separates from *id* by space.
 ```
-<phrase>[#<id>[ <comment>]]
+<phrase>[#[<id>][ <comment>]]
 ```
 *phrase* + *id* is unique key for translation dictionary. You can create several variants of translation of the same *phrase* using different *id*s.
 
@@ -252,17 +252,66 @@ __('Hello!# This is a comment for translator');
 ```
 ### Placeholders
 
-Phrases can contains placeholders.
+Phrase can contains placeholders.
 
 Placeholder's format is:
 
-**%s** - fills with the next arg.  
-**%s(id)** - fills with the *id* arg (arg number *id* for additional args or arg[id] for array and map args).  
-**%n** - fills with base number of plural form (valid for plural form only).  
+```%[(<name>)][<flag>][<width>][.<precision>]<type>```
+
+, where:
+
+- *\<name>* - argument name or number;
+- *\<flag>* - one or more special flags;
+- *\<width>* - field width;
+- *\<precision>* - precision for numeric or max string length for string;
+- *\<type>* - conversion specifier.
+
+
+#### Name
+
+Argument number for additional arguments and array arguments, argument name for map arguments.
+
+#### Flag
+
+- *'-'* - The converted value is to be left adjusted on the field boundary (the default is right).
+- *' '* - A space should be left before a positive number or empty string.
+- *'+'* - A plus sign should always be placed before a non-negative number. Overrides a space if both are used.
+
+#### Width
+
+An optional decimal digit string (with nonzero first digit) specifying a minimum field width. If the converted value
+has fewer characters than the field width, it will be padded with spaces (on the left by default or on the rigth
+if '-' flag has been given).
+
+#### Precision
+
+An optional precision, in the form of a period ('.') followed by an optional decimal digit string.
+This gives the number of digits to appear after the radix character for numeric conversions or the
+maximum number of characters for string conversions.
+
+#### The conversion specifier
+
+A character that specifies the type of conversion to be applied. The conversion specifiers and their meanings are:
+
+- **s** - string;
+- **d** - decimal number;
+- **e** - decimal number in scientific notation;
+- **b** - binary number with 'b' suffix;
+- **h** - hex number with 'h' suffix and lowercased 'a-f' digits;
+- **x** - hex number with '0x' prefix and lowercased 'a-f' digits;
+- **X** - hex number with '0x' prefix and uppercased 'A-F' digits;
+- **n** - same as 'd' but with value from n parameter;
+- **%** - A '%' is written. No argument is converted. The complete conversion specification is '%%'.
 
 ### Example:
 
-See example of __() function.
+```javascript
+__('%+10.2d%%', 13); // '    +13.00'
+__('Hello, %(who)-5.3s!', { who: 'world'} ); // 'Hello, wor  !'
+__('%(1)s is %(0)b (%(0)h)', 42, 'value'); // 'value is 1101b (Dh)'
+```
+
+See also: [Translation](#translation) example.
 
 ### Special characters
 
@@ -273,11 +322,7 @@ __('%s%%', 40);
 // It's # not a comment!
 __('It\'s ## not a comment!);
 ```
-Also you can use '(' character after placeholder. Type it twice too:
-```javascript
-// Order by name(asc)
-__('Order by %s((asc)', 'name');
-```
+
 ## Remote translation
 ---
 
@@ -296,7 +341,7 @@ i18n.tr(obj)
   args: <arguments>
 }
 ```
-See also: Creating i18n object.
+See also: [Creating i18n object](#creating-i18n-object).
 
 ### Example:
 ```javascript
