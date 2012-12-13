@@ -269,23 +269,23 @@ Placeholder's format is:
 - *\<type>* - conversion specifier.
 
 
-#### Name
+#### The name
 
 Argument number for additional arguments and array arguments, argument name for map arguments.
 
-#### Flag
+#### The flag characters
 
 - *'-'* - The converted value is to be left adjusted on the field boundary (the default is right).
 - *' '* - A space should be left before a positive number or empty string.
 - *'+'* - A plus sign should always be placed before a non-negative number. Overrides a space if both are used.
 
-#### Width
+#### The field width
 
 An optional decimal digit string (with nonzero first digit) specifying a minimum field width. If the converted value
 has fewer characters than the field width, it will be padded with spaces (on the left by default or on the rigth
 if '-' flag has been given).
 
-#### Precision
+#### The precision
 
 An optional precision, in the form of a period ('.') followed by an optional decimal digit string.
 This gives the number of digits to appear after the radix character for numeric conversions or the
