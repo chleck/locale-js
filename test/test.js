@@ -132,24 +132,24 @@ describe('Test suite for locale library', function() {
       __('%s %s!', [ 'Hello', 'world' ]).should.equal('Hello world!');
     })
 
-    it('%s(n) with additional args', function() {
-      __('%s(1) %s(2)!', 'Hello', 'world').should.equal('Hello world!');
+    it('%(n)s with additional args', function() {
+      __('%(0)s %(1)s!', 'Hello', 'world').should.equal('Hello world!');
     })
 
-    it('%s(n) with array args', function() {
-      __('%s(1) %s(2)!', [ 'Hello', 'world' ]).should.equal('Hello world!');
+    it('%(n)s with array args', function() {
+      __('%(0)s %(1)s!', [ 'Hello', 'world' ]).should.equal('Hello world!');
     })
 
-    it('%s(key) with map args', function() {
-      __('%s(one) %s(two)!', { one: 'Hello', two: 'world' }).should.equal('Hello world!');
+    it('%(key)s with map args', function() {
+      __('%(one)s %(two)s!', { one: 'Hello', two: 'world' }).should.equal('Hello world!');
     })
 
-    it('mixed %s and %s(n) with additional args', function() {
-      __('%s(2) %s!', 'world', 'Hello').should.equal('Hello world!');
+    it('mixed %s and %(n)s with additional args', function() {
+      __('%(1)s %s!', 'world', 'Hello').should.equal('Hello world!');
     })
 
-    it('mixed %s and %s(n) with array args', function() {
-      __('%s(2) %s!', [ 'world', 'Hello' ]).should.equal('Hello world!');
+    it('mixed %s and %(n)s with array args', function() {
+      __('%(1)s %s!', [ 'world', 'Hello' ]).should.equal('Hello world!');
     })
 
   })
