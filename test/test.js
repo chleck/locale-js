@@ -117,39 +117,199 @@ describe('Test suite for locale library', function() {
 
   describe('Placeholders:', function() {
 
-    it('%n', function() {
-      locale.to('');
-      __ = locale.__;
-      __(['%n message.', '%n messages.'], 1).should.equal('1 message.');
-      __(['%n message.', '%n messages.'], 2).should.equal('2 messages.');
+    describe('Arguments:', function() {
+
+      it('%s with additional args', function() {
+        locale.to('');
+        __ = locale.__;
+        __('%s %s!', 'Hello', 'world').should.equal('Hello world!');
+      })
+
+      it('%s with array args', function() {
+        __('%s %s!', [ 'Hello', 'world' ]).should.equal('Hello world!');
+      })
+
+      it('%(n)s with additional args', function() {
+        __('%(0)s %(1)s!', 'Hello', 'world').should.equal('Hello world!');
+      })
+
+      it('%(n)s with array args', function() {
+        __('%(0)s %(1)s!', [ 'Hello', 'world' ]).should.equal('Hello world!');
+      })
+
+      it('%(key)s with map args', function() {
+        __('%(one)s %(two)s!', { one: 'Hello', two: 'world' }).should.equal('Hello world!');
+      })
+
+      it('mixed %s and %(n)s with additional args', function() {
+        __('%(1)s %s!', 'world', 'Hello').should.equal('Hello world!');
+      })
+
+      it('mixed %s and %(n)s with array args', function() {
+        __('%(1)s %s!', [ 'world', 'Hello' ]).should.equal('Hello world!');
+      })
+
+      it('%n', function() {
+        __(['%n message.', '%n messages.'], 1).should.equal('1 message.');
+        __(['%n message.', '%n messages.'], 2).should.equal('2 messages.');
+      })
+
     })
 
-    it('%s with additional args', function() {
-      __('%s %s!', 'Hello', 'world').should.equal('Hello world!');
+    describe('%s:', function() {
+
+      it('with width and precision', function() {
+        __('%5.2s', [ 'test' ]).should.equal('   te');
+      })
+
+      it('with \'-\' flag', function() {
+        __('%-10s', [ 'Hi!' ]).should.equal('Hi!       ');
+      })
+
+      it('with \' \' flag', function() {
+        __('% s', [ '' ]).should.equal(' ');
+      })
+
     })
 
-    it('%s with array args', function() {
-      __('%s %s!', [ 'Hello', 'world' ]).should.equal('Hello world!');
+    describe('%d:', function() {
+
+      it('with width and precision', function() {
+        __('%10.2d', [ 13 ]).should.equal('     13.00');
+      })
+
+      it('with \'-\' flag', function() {
+        __('%-5d', [ -42 ]).should.equal('-42  ');
+      })
+
+      it('with \'+\' flag', function() {
+        __('%+d', [ 42 ]).should.equal('+42');
+      })
+
+      it('with \' \' flag', function() {
+        __('% d', [ 42 ]).should.equal(' 42');
+      })
+
     })
 
-    it('%(n)s with additional args', function() {
-      __('%(0)s %(1)s!', 'Hello', 'world').should.equal('Hello world!');
+    describe('%e:', function() {
+
+      it('with width and precision', function() {
+        __('%10.2e', [ 10/3 ]).should.equal('   3.33e+0');
+      })
+
+      it('with \'-\' flag', function() {
+        __('%-10.2e', [ -10/3 ]).should.equal('-3.33e+0  ');
+      })
+
+      it('with \'+\' flag', function() {
+        __('%+e', [ 10/3 ]).should.equal('+3.333333e+0');
+      })
+
+      it('with \' \' flag', function() {
+        __('% e', [ 10/3 ]).should.equal(' 3.333333e+0');
+      })
+
     })
 
-    it('%(n)s with array args', function() {
-      __('%(0)s %(1)s!', [ 'Hello', 'world' ]).should.equal('Hello world!');
+    describe('%b:', function() {
+
+      it('with width', function() {
+        __('%10b', [ -13 ]).should.equal('    -1101b');
+      })
+
+      it('with \'-\' flag', function() {
+        __('%-10b', [ -13 ]).should.equal('-1101b    ');
+      })
+
+      it('with \'+\' flag', function() {
+        __('%+b', [ 13 ]).should.equal('+1101b');
+      })
+
+      it('with \' \' flag', function() {
+        __('% b', [ 13 ]).should.equal(' 1101b');
+      })
+
     })
 
-    it('%(key)s with map args', function() {
-      __('%(one)s %(two)s!', { one: 'Hello', two: 'world' }).should.equal('Hello world!');
+    describe('%h:', function() {
+
+      it('with width', function() {
+        __('%10h', [ -43981 ]).should.equal('    -ABCDh');
+      })
+
+      it('with \'-\' flag', function() {
+        __('%-10h', [ -43981 ]).should.equal('-ABCDh    ');
+      })
+
+      it('with \'+\' flag', function() {
+        __('%+h', [ 43981 ]).should.equal('+ABCDh');
+      })
+
+      it('with \' \' flag', function() {
+        __('% h', [ 43981 ]).should.equal(' ABCDh');
+      })
+
     })
 
-    it('mixed %s and %(n)s with additional args', function() {
-      __('%(1)s %s!', 'world', 'Hello').should.equal('Hello world!');
+    describe('%x:', function() {
+
+      it('with width', function() {
+        __('%10x', [ -43981 ]).should.equal('   -0xabcd');
+      })
+
+      it('with \'-\' flag', function() {
+        __('%-10x', [ -43981 ]).should.equal('-0xabcd   ');
+      })
+
+      it('with \'+\' flag', function() {
+        __('%+x', [ 43981 ]).should.equal('+0xabcd');
+      })
+
+      it('with \' \' flag', function() {
+        __('% x', [ 43981 ]).should.equal(' 0xabcd');
+      })
+
     })
 
-    it('mixed %s and %(n)s with array args', function() {
-      __('%(1)s %s!', [ 'world', 'Hello' ]).should.equal('Hello world!');
+    describe('%X:', function() {
+
+      it('with width', function() {
+        __('%10X', [ -43981 ]).should.equal('   -0xABCD');
+      })
+
+      it('with \'-\' flag', function() {
+        __('%-10X', [ -43981 ]).should.equal('-0xABCD   ');
+      })
+
+      it('with \'+\' flag', function() {
+        __('%+X', [ 43981 ]).should.equal('+0xABCD');
+      })
+
+      it('with \' \' flag', function() {
+        __('% X', [ 43981 ]).should.equal(' 0xABCD');
+      })
+
+    })
+
+    describe('%n:', function() {
+
+      it('with width and precision', function() {
+        __([ '', '%10.2n' ], 13).should.equal('     13.00');
+      })
+
+      it('with \'-\' flag', function() {
+        __([ '', '%-5n' ], -42).should.equal('-42  ');
+      })
+
+      it('with \'+\' flag', function() {
+        __([ '', '%+n' ], 42).should.equal('+42');
+      })
+
+      it('with \' \' flag', function() {
+        __([ '', '% n' ], 42).should.equal(' 42');
+      })
+
     })
 
   })
@@ -178,4 +338,4 @@ describe('Test suite for locale library', function() {
 
   })
 
-});
+})
