@@ -256,7 +256,9 @@ Phrase can contains placeholders.
 
 Placeholder's format is:
 
-```%[(<name>)][<flag>][<width>][.<precision>]<type>```
+```
+%[(<name>)][<flag>][<width>][.<precision>]<type>
+```
 
 , where:
 
