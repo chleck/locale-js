@@ -295,19 +295,19 @@ describe('Test suite for locale library', function() {
     describe('%n:', function() {
 
       it('with width and precision', function() {
-        __([ '', '%10.2n' ], 13).should.equal('     13.00');
+        __([ '%10.2n', '%10.2n' ], 13).should.equal('     13.00');
       })
 
       it('with \'-\' flag', function() {
-        __([ '', '%-5n' ], -42).should.equal('-42  ');
+        __([ '%-5n', '%-5n' ], -42).should.equal('-42  ');
       })
 
       it('with \'+\' flag', function() {
-        __([ '', '%+n' ], 42).should.equal('+42');
+        __([ '%+n', '%+n' ], 42).should.equal('+42');
       })
 
       it('with \' \' flag', function() {
-        __([ '', '% n' ], 42).should.equal(' 42');
+        __([ '% n', '% n' ], 42).should.equal(' 42');
       })
 
     })
