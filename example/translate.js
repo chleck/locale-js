@@ -10,7 +10,7 @@
 
 // Import and init the library
 var locale = require('..');
-locale.init('./');
+locale.init('./i18n');
 
 w('# LOCALE LIBRARY DEMO:');
 

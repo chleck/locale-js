@@ -12,7 +12,7 @@ http = require('http');
 
 // Import and init the library
 var locale = require('..');
-locale.init('./');
+locale.init('./i18n');
 var i18n = new locale.i18n(null);
 
 var __ = i18n.__;
