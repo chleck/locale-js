@@ -1,5 +1,5 @@
-@ [1] remote.js (24:15)
-@ [2] remote.js (26:17)
+@ [1] deferred.js (24:15)
+@ [2] deferred.js (26:17)
 @ [3] translate.js (37:6)
 @ [4] translate.js (39:6)
 S Hello!
@@ -7,7 +7,7 @@ S Hello!
 ? Hello!
 ! Привет!
 
-@ [1] remote.js (25:13)
+@ [1] deferred.js (25:13)
 P The following error occurred during processing:
 ? The following error occurred during processing:
 ? The following errors occurred during processing:
@@ -15,7 +15,7 @@ P The following error occurred during processing:
 ! Во время обработки возникли следующие ошибки:
 ! Во время обработки возникли следующие ошибки:
 
-@ [1] remote.js (26:31)
+@ [1] deferred.js (26:31)
 S Email %s is invalid. Please enter valid email.
 ? Email %s is invalid. Please enter valid email.
 ! Недопустимый email %s. Пожалуйста, введите правильный email.

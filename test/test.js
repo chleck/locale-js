@@ -4,7 +4,6 @@
  * ## locale.js: i18n for Node.js and browser
  * 
  * @author Dmitry A. Chleck <dmitrychleck@gmail.com>
- * @version 1.1.0
  * @url https://github.com/chleck/locale-js
  */
 
@@ -36,7 +35,7 @@ describe('Test suite for locale library', function() {
       i18n = new locale.i18n();
     })
 
-    it('Create i18n object for remote translation', function() {
+    it('Create i18n object for deferred translation', function() {
       i18n = new locale.i18n(null);
     })
 
@@ -314,14 +313,14 @@ describe('Test suite for locale library', function() {
 
   })
 
-  describe('Remote translation:', function() {
+  describe('Deferred translation:', function() {
 
-    it('Turn on remote translation mode', function() {
+    it('Turn on deferred translation mode', function() {
       locale.to(null);
       __ = locale.__;
     })
 
-    it('Create object containing remote translation data', function() {
+    it('Create object containing deferred translation data', function() {
       tmp = {
         data: 'Some data...',
         array: [ 1, 2, 3, 4, 5 ],

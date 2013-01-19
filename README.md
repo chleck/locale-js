@@ -7,7 +7,7 @@
 * Plural forms for any language
 * Simultaneous support of multiple languages
 * Flexible placeholders
-* Remote translation
+* Deferred translation
 
 ## It's simple
 ---
@@ -44,7 +44,7 @@ See [locale-tools project](https://github.com/chleck/locale-tools "Tools for loc
 - [Translation target](#translation-target)
 - [Translation](#translation)
 - [Strings format](#strings-format)
-- [Remote translation](#remote-translation)
+- [Deferred translation](#deferred-translation)
 
 ## Library import
 ---
@@ -107,7 +107,7 @@ new locale.i18n(target)
 , where *target* (string or null) - 1) id of the target language, 2) empty string or 3) null.
 
 Sets target language to base language if *target* is *''* (empty string).  
-Enables remote translation mode if *target* is *null*.  
+Enables deferred translation mode if *target* is *null*.  
 
 ### Example:
 ```javascript
@@ -115,7 +115,7 @@ Enables remote translation mode if *target* is *null*.
 var i18n = new locale.i18n('ru');
 // Create translation object for base language (no translation)
 var i18n = new locale.i18n('');
-// Create translation object for remote translation
+// Create translation object for deferred translation
 var i18n = new locale.i18n(null);
 // And pull up __() function to the local scope
 var __ = i18n.__;
@@ -138,7 +138,7 @@ to(target)
 , where *target* (string or null) - 1) id of target language, 2) empty string or 3) null.
 
 Sets target language to base language if *target* is *''* (empty string).  
-Switches i18n object to remote translation mode if *target* is *null*.  
+Switches i18n object to deferred translation mode if *target* is *null*.  
 
 ### Example:
 ```javascript
@@ -147,7 +147,7 @@ locale.to('de');
 // Create i18n object and set its target language to Russian
 var i18n = new locale.i18n();
 i18n.to('ru');
-// Enable remote translation mode
+// Enable deferred translation mode
 i18n.to(null);
 ```
 ## Translation
@@ -169,7 +169,7 @@ __(phrase, object)
 - *array* (Array) - array of args;
 - *object* (object) - map of args.
 
-Returns translated string or remote translation data (in case of remote translation target).
+Returns translated string or deferred translation data (in case of deferred translation target).
 
 ### For plural form:
 ```javascript
@@ -186,7 +186,7 @@ __(phrase, n, object)
 - *array* (Array) - array of args;
 - *object* (object) - map of args.
 
-Returns translated string or remote translation data (in case of remote translation target).
+Returns translated string or deferred translation data (in case of deferred translation target).
 
 ### Example:
 ```javascript
@@ -218,12 +218,12 @@ __([
     '%(login)s, you have %n unreaded messages in the "%(folder)s" folder.'
    ], 365, { login: 'Anonymous', folder: 'Spam' });
 
-// Remote:
+// Deferred:
 
 // { __i18n: true, phrase: 'Hello!', n: undefined, args: {} }
 __('Hello!');
 ```
-See also: [Remote translation](#remote-translation).
+See also: [Deferred translation](#deferred-translation).
 
 ## Strings format
 ---
@@ -325,16 +325,16 @@ __('%s%%', 40);
 __('It\'s ## not a comment!);
 ```
 
-## Remote translation
+## Deferred translation
 ---
 
-### Search for remote translation data in the *obj* and replace it by translated string:
+### Search for deferred translation data in the *obj* and replace it by translated string:
 ```javascript
 i18n.tr(obj)
 ```
 , where *obj* (object) - object for translation.
 
-### Remote translation data structure:
+### Deferred translation data structure:
 ```
 {
   __i18n: true,
@@ -349,7 +349,7 @@ See also: [Creating i18n object](#creating-i18n-object).
 ```javascript
 // Server:
 
-// Create i18n object for the remote mode
+// Create i18n object for the deferred mode
 var i18n = new locale.i18n(null);
 var __ = i18n.__;
 submit({

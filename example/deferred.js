@@ -1,10 +1,9 @@
 /*
- * # locale library usage examples: remote translation
+ * # locale library usage examples: deferred translation
  *
  * ## locale.js: i18n for Node.js and browser
  * 
  * @author Dmitry A. Chleck <dmitrychleck@gmail.com>
- * @version 1.1.0
  * @url https://github.com/chleck/locale-js
  */
 
